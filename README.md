@@ -309,7 +309,7 @@ For each shell that you configured during the Dorothy installation (can be recon
         1. Load any common alias and function utilities.
         1. Load our theme configuration.
         1. Load our ssh configuration.
-        1. Load our autocomplete configuration.
+        1. Load our environment integrations.
 
 This is the foundation that enables Dorothy's hundreds of commands to work across hundreds of machines, across dozens of operating system and shell combinations, seamlessly.
 

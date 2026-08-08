@@ -44,20 +44,3 @@ command-exists -- 'ssh-agent' | complete; if $env.LAST_EXIT_CODE == 0 {
 	# trap not supported yet by nushell
 	# https://github.com/nushell/nushell/issues/8360
 }
-
-# =====================================
-# Autocomplete
-
-# https://www.nushell.sh/book/custom_completions.html
-
-command-exists -- 'carapace' | complete; if $env.LAST_EXIT_CODE == 0 {
-	# carapace
-	# https://carapace-sh.github.io/carapace-bin/setup.html#nushell
-	source ~/.local/state/dorothy/carapace.nu
-} else {
-	command-exists -- 'is' | complete; if $env.LAST_EXIT_CODE == 0 {
-		# inshellisense
-		# https://is-sh.github.io/is-bin/setup.html#nushell
-		source ~/.local/state/dorothy/inshellisense.nu
-	}
-}

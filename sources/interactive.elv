@@ -30,15 +30,6 @@ if ?(test -f $E:DOROTHY'/user/config.local/interactive.elv') {
 eval (cat $E:DOROTHY'/sources/theme.elv' | slurp)
 
 # =====================================
-# Autocomplete
-
-if ?( command-exists -- carapace ) {
-	# carapace
-	# https://carapace-sh.github.io/carapace-bin/setup.html#elvish
-	eval (carapace _carapace elvish | slurp)
-}
-
-# =====================================
 # Terminals
 
 # Ghostty: https://github.com/ghostty-org/ghostty/tree/main/src/shell-integration

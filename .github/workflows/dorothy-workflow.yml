@@ -127,7 +127,7 @@ jobs:
           SLUG: ${{ needs.setup.outputs.SLUG }}
           COMMIT: ${{ needs.setup.outputs.COMMIT }}
           ACTION: install
-          ARGUMENTS: -- --shells=bash,zsh,fish,nu,xonsh,elvish,dash,ksh --utils=carapace
+          ARGUMENTS: -- --shells=bash,zsh,fish,nu,xonsh,elvish,dash,ksh
       - name: "Dorothy Login Shell: bash"
         shell: bash -leo pipefail {0}
         run: |
