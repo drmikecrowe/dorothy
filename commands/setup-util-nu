@@ -56,6 +56,7 @@ function setup_util_nu() (
 		removals+=("$autoload_path/starship.nu" "$XDG_STATE_HOME/starship/init.nu" "$state_path/sources/starship.nu") # deprecated
 
 		# carapace
+		# https://carapace-sh.github.io/carapace-bin/setup.html#nushell
 		if __command_exists -- carapace; then
 			{
 				__print_lines '#!/usr/bin/env nu'
@@ -65,6 +66,17 @@ function setup_util_nu() (
 			{ __print_lines '#!/usr/bin/env nu'; } >"$state_path/carapace.nu" || return $?
 		fi
 		removals+=("$autoload_path/carapace.nu" "$state_path/sources/carapace.nu" "$XDG_STATE_HOME/carapace/init.nu") # deprecated
+
+		# inshellisense
+		# https://github.com/microsoft/inshellisense#shell-plugin
+		if __command_exists -- inshellisense; then
+			{
+				__print_lines '#!/usr/bin/env nu'
+				is init nu
+			} >"$state_path/inshellisense.nu" || return $?
+		else
+			{ __print_lines '#!/usr/bin/env nu'; } >"$state_path/inshellisense.nu" || return $?
+		fi
 
 		# dorothy configuration files
 		if [[ -f "$DOROTHY/user/config.local/interactive.nu" ]]; then

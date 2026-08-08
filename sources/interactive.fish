@@ -60,8 +60,13 @@ if test "$TERM_PROGRAM" = 'vscode' && command-exists -- code
 	. (code --locate-shell-integration-path fish)
 end
 
-# Carapace
-# https://carapace-sh.github.io/carapace-bin/setup.html#fish
+# load
 if command-exists -- carapace
+	# carapace
+	# https://carapace-sh.github.io/carapace-bin/setup.html#fish
 	carapace _carapace fish | source
+else if command-exists -- is
+	# inshellisense
+	# https://github.com/microsoft/inshellisense#shell-plugin
+	is init fish | source
 end

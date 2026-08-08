@@ -107,27 +107,37 @@ if [ "${TERM_PROGRAM-}" = 'vscode' ] && command -v code >/dev/null 2>&1; then
 fi
 
 if [ "$ACTIVE_POSIX_SHELL" = 'bash' ]; then
-	# Enable Completions
+	# enable completions
 	# trunk-ignore(shellcheck/SC3044)
 	shopt -s progcomp
 
-	# Carapace
-	# https://carapace-sh.github.io/carapace-bin/setup.html#bash
+	# load completions
 	if command -v carapace >/dev/null 2>&1; then
+		# carapace
+		# https://carapace-sh.github.io/carapace-bin/setup.html#bash
 		eval "$(carapace _carapace bash)"
+	elif command -v is >/dev/null 2>&1; then
+		# inshellisense
+		# https://github.com/microsoft/inshellisense#shell-plugin
+		eval "$(is init bash)"
 	fi
 
 elif [ "$ACTIVE_POSIX_SHELL" = 'zsh' ]; then
-	# Enable Completions
-	autoload -Uz compinit
+	# enable completions
+	autoload -Uz compinit # -U load, -z zsh-style
 	compinit
 
-	# Carapace
-	# https://carapace-sh.github.io/carapace-bin/setup.html#zsh
+	# load completions
 	if command -v carapace >/dev/null 2>&1; then
+		# carapace
+		# https://carapace-sh.github.io/carapace-bin/setup.html#zsh
 		# trunk-ignore(shellcheck/SC3003)
 		zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'
 		eval "$(carapace _carapace zsh)"
+	elif command -v is >/dev/null 2>&1; then
+		# inshellisense
+		# https://github.com/microsoft/inshellisense#shell-plugin
+		eval "$(is init zsh)"
 	fi
 fi
 

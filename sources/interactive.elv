@@ -32,9 +32,9 @@ eval (cat $E:DOROTHY'/sources/theme.elv' | slurp)
 # =====================================
 # Autocomplete
 
-# Carapace
-# https://carapace-sh.github.io/carapace-bin/setup.html#elvish
 if ?( command-exists -- carapace ) {
+	# carapace
+	# https://carapace-sh.github.io/carapace-bin/setup.html#elvish
 	eval (carapace _carapace elvish | slurp)
 }
 

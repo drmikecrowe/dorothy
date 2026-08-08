@@ -50,8 +50,14 @@ command-exists -- 'ssh-agent' | complete; if $env.LAST_EXIT_CODE == 0 {
 
 # https://www.nushell.sh/book/custom_completions.html
 
-# Carapace
-# https://carapace-sh.github.io/carapace-bin/setup.html#nushell
 command-exists -- 'carapace' | complete; if $env.LAST_EXIT_CODE == 0 {
+	# carapace
+	# https://carapace-sh.github.io/carapace-bin/setup.html#nushell
 	source ~/.local/state/dorothy/carapace.nu
+} else {
+	command-exists -- 'is' | complete; if $env.LAST_EXIT_CODE == 0 {
+		# inshellisense
+		# https://is-sh.github.io/is-bin/setup.html#nushell
+		source ~/.local/state/dorothy/inshellisense.nu
+	}
 }

@@ -37,8 +37,12 @@ execx(compilex(open($DOROTHY + '/sources/theme.xsh').read()))
 # =====================================
 # Autocomplete
 
-# Carapace
-# https://carapace-sh.github.io/carapace-bin/setup.html#xonsh
 if !(command-exists -- carapace).returncode == 0:
+	# carapace
+	# https://carapace-sh.github.io/carapace-bin/setup.html#xonsh
 	COMPLETIONS_CONFIRM=True
 	exec($(carapace _carapace xonsh))
+elif !(command-exists -- is).returncode == 0:
+	# inshellisense
+	# https://github.com/microsoft/inshellisense#shell-plugin
+	is init xonsh
